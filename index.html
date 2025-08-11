@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>パズルゲームです！！！！</title>
+</head>
+<body onload="init(100)">
+    <div class="container">
+        <div class="controls">
+            <button onclick="init(50)">かんたん</button>
+            <button onclick="init(100)">ふつう</button>
+            <button onclick="init(200)">むずかしい</button>
+            
+            <!-- 画像設定機能(未実装)
+            <input type="file" id="imageInput" accept="inage/*"> -->
+            
+        </div>
+
+        <div class="stats">
+            <div id="timer">時間: 00:00</div>
+            <div id="moves">移動回数: 0</div>
+        </div>
+        
+        <table id="table"></table>
+    </div>
+    <footer>
+        <div class="history">
+            <p>2025-08-11 GitHub上へ公開</p>
+            <p>2025/08/10 タイマーと難易度選択の実装</p>
+        </div>
+        <div class="copy">製作: 戸田太陽</div>
+    </footer>
+    <script src="main.js"></script>
+</body>
+</html>
