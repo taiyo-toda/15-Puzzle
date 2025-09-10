@@ -6,7 +6,7 @@ let timer = null; // タイマー機能
 let startTime = null; // 開始時間を保存する変数
 let isInitializing = false; // 初期化中フラグ
 
-function init(shuffleCount = 100) {
+function init(shuffleCount) {
     isInitializing = true;  // 初期化フラグを立てる
     
     // リセット処理を実行
@@ -48,7 +48,7 @@ function init(shuffleCount = 100) {
     // シャッフル(実際のクリックを模倣することにより再現)
     for(let i = 0; i < shuffleCount; i++) {
         click({ 
-            target: {index: Math.floor(Math.random() * 16)}
+            srcElement: { index: Math.floor(Math.random() * 16) }
         });
     }
 
@@ -59,8 +59,8 @@ function init(shuffleCount = 100) {
 }
 
 function click(e) { // タイルがクリックされたら移動判定を行う関数
-
-    let i = e.target.index; // クリックされたタイルの添字を参照, 代入している
+    // srcElementとtargetの両方に対応
+    let i = (e.srcElement && e.srcElement.index !== undefined) ? e.srcElement.index : e.target.index;
 
     // クリックの際に4方向どれかの移動が可能であれば、swap関数で入れ替える
     if(i-4 >= 0 && tiles[i-4].value == 0 ) {
